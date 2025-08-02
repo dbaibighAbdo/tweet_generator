@@ -57,11 +57,11 @@ Create a .env file in the root directory and configure the necessary environment
 💡 Example:
 ---- .env.example ----
 
-4. Run the Research Assistant
-Start the assistant with:
+4. Run the Tweet Generator
+Start the generator with:
 
 ```bash
-python research_assistant.py
+python workflow.py
 ```
 
 5. Enable Tracing with LangSmith
