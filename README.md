@@ -29,4 +29,51 @@ The agent follows a **reflect-think-write** loop:
 1. **Generator Node**: creates an initial draft of a tweet.
 2. **Critic Node**: critiques the draft based on style, clarity, or engagement.
 3. **Router**: decides when to regenerate the tweet or finish.
-3. **Final Output Node**: outputs the polished tweet.
+4. **Final Output Node**: outputs the polished tweet.
+
+---------------------------------------------------------------------------------
+
+
+## 🚀 Getting Started
+
+Follow these steps to set up and run the project:
+
+### 1. Install Python 3.11 or higher  
+Ensure you have **Python 3.11+** installed on your system.  
+You can check your version with:
+
+```bash
+python --version
+```
+2. Install dependencies
+Use pip to install all required packages:
+
+```bash
+pip install -r requirements.txt
+```
+3. Set up environment variables
+Create a .env file in the root directory and configure the necessary environment variables.
+
+💡 Example:
+---- .env.example ----
+
+4. Run the Tweet Generator
+Start the generator with:
+
+```bash
+python workflow.py
+```
+
+5. Enable Tracing with LangSmith
+LangSmith helps trace and debug your agents effectively.
+Check out the:
+
+[tracing](https://docs.smith.langchain.com/concepts/tracing).
+
+6. (Optional) Use LangGraph Studio
+You can launch an interactive development studio for LangGraph using:
+
+```bash
+langgraph dev
+```
+
