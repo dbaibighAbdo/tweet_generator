@@ -1,5 +1,6 @@
 from langgraph.graph import MessagesState, START, END
 from langchain_core.messages import HumanMessage, AIMessage
+from langgraph.types import interrupt
 
 from langgraph.graph import StateGraph
 from langgraph.checkpoint.memory import MemorySaver
@@ -41,7 +42,7 @@ builder.add_edge(START, "generator")
 builder.add_conditional_edges("generator", router)
 builder.add_edge("reflector", "generator")
 
-graph = builder.compile()
+graph = builder.compile(checkpointer=memory)
 
 
 
