@@ -6,6 +6,7 @@ This project implements a **Reflection Agent** using [LangGraph](https://github.
 
 - ✍️ Generates concise, engaging tweets on various topics
 - 🔁 Uses a reflection loop to improve tweet quality
+- 🧠 Human-in-the-Loop (HITL) mechanism allows users to review, reject, or approve tweets for better control and satisfaction
 - 🧩 Modular design with LangGraph for flexibility and extensibility
 - 🔌 Easy to plug in your own prompt templates, models, or evaluators
 
@@ -28,7 +29,7 @@ This project implements a **Reflection Agent** using [LangGraph](https://github.
 The agent follows a **reflect-think-write** loop:
 1. **Generator Node**: creates an initial draft of a tweet.
 2. **Critic Node**: critiques the draft based on style, clarity, or engagement.
-3. **Router**: decides when to regenerate the tweet or finish.
+3. **human feedback**: after 2 iterations user decides when to regenerate the tweet or finish.
 4. **Final Output Node**: outputs the polished tweet.
 
 ---------------------------------------------------------------------------------
