@@ -25,24 +25,37 @@ def reflector(state: MessagesState) -> MessagesState:
 
 
 
-def router(state: MessagesState):
-    if len(state["messages"]) > 4:
-        return END
-    return "reflector"
+def human_feedback(state: MessagesState):
+    if len(state["messages"]) > 3:
+        question = "Are you satisfied whit this result (yes/no) ? "
+        while True:
+            feedback = str(interrupt(question)).lower()
+            if feedback not in ["yes", "no"]:
+                question = " Please with yes or no, Are you satisfied whit this result? "
+                feedback = None
+                continue
+            else:
+                break
+        if feedback == "yes":
+            return END
+        else:
+            return "reflector"  
+    else:
+        return "reflector"    
 
 
 
-memory = MemorySaver()
+
 builder = StateGraph(MessagesState)
 
 builder.add_node("generator", generator)
 builder.add_node("reflector", reflector)
 
 builder.add_edge(START, "generator")
-builder.add_conditional_edges("generator", router)
+builder.add_conditional_edges("generator", human_feedback)
 builder.add_edge("reflector", "generator")
 
-graph = builder.compile(checkpointer=memory)
+graph = builder.compile()
 
 
 
